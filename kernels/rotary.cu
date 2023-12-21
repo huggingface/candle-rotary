@@ -113,7 +113,7 @@ extern "C" void rotary_embedding(
 
   if (is_neox_bool) {
     if (dtype == 0){
-      CALL_ROTARY(uint16_t, true);
+      CALL_ROTARY(half, true);
     } else if (dtype == 1) {
       CALL_ROTARY(__nv_bfloat16, true);
     } else if (dtype == 2) {
@@ -121,7 +121,7 @@ extern "C" void rotary_embedding(
     }
   } else {
     if (dtype == 0){
-      CALL_ROTARY(uint16_t, false);
+      CALL_ROTARY(half, false);
     } else if (dtype == 1) {
       CALL_ROTARY(__nv_bfloat16, false);
     } else if (dtype == 2) {
