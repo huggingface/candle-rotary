@@ -28,26 +28,26 @@ fn apply_rotary_<
 
     let (q, q_l) = query.storage_and_layout();
     let q = match &*q {
-        Storage::Cpu(_) => candle::bail!("query must be a cuda tensor"),
         Storage::Cuda(q) => q,
+        _ => candle::bail!("query must be a cuda tensor"),
     };
 
     let (k, k_l) = key.storage_and_layout();
     let k = match &*k {
-        Storage::Cpu(_) => candle::bail!("key must be a cuda tensor"),
         Storage::Cuda(k) => k,
+        _ => candle::bail!("key must be a cuda tensor"),
     };
 
     let (cc, cc_l) = cos_cache.storage_and_layout();
     let cc = match &*cc {
-        Storage::Cpu(_) => candle::bail!("cos_cache must be a cuda tensor"),
         Storage::Cuda(cc) => cc,
+        _ => candle::bail!("cos_cache must be a cuda tensor"),
     };
 
     let (sc, sc_l) = sin_cache.storage_and_layout();
     let sc = match &*sc {
-        Storage::Cpu(_) => candle::bail!("sin_cache must be a cuda tensor"),
         Storage::Cuda(sc) => sc,
+        _ => candle::bail!("sin_cache must be a cuda tensor"),
     };
 
     let q_rank = q_l.stride().len();
