@@ -15,7 +15,7 @@ half = { version = "2.3.1", features = ["num-traits"] }
 
 [build-dependencies]
 anyhow = { version = "1", features = ["backtrace"] }
-bindgen_cuda = { path = "../bindgen_cuda" }
+bindgen_cuda = "0.1.1"
 
 [dev-dependencies]
 anyhow = { version = "1", features = ["backtrace"] }
