@@ -28,7 +28,7 @@ fn main() -> Result<()> {
         }
     };
 
-    let kernels = KERNEL_FILES.iter().map(|f| f.into()).collect();
+    let kernels : Vec<_>= KERNEL_FILES.iter().collect();
     let builder = bindgen_cuda::Builder::default().kernel_paths(kernels).out_dir(build_dir.clone())
                     .arg("-std=c++17")
                     .arg("-O3")
